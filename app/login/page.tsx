@@ -15,17 +15,12 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/auth.context';
 
-export const formSchema = z.object({
-  name: z.string().min(1, { message: 'Email required' }),
-  email: z.string().email({ message: 'Invalid email address' }),
-});
+export default function LoginForm() {
+  const formSchema = z.object({
+    name: z.string().min(1, { message: 'Email required' }),
+    email: z.string().email({ message: 'Invalid email address' }),
+  });
 
-interface LoginFormProps {
-  setSelectedTab?: (data: string) => void;
-  setUserCreds?: (data: unknown) => void;
-}
-
-const LoginForm = ({}: LoginFormProps) => {
   const [apiError, setApiError] = useState('');
 
   const { logIn } = useAuth();
@@ -120,6 +115,4 @@ const LoginForm = ({}: LoginFormProps) => {
       </div>
     </div>
   );
-};
-
-export default LoginForm;
+}
