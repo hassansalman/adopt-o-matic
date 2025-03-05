@@ -28,7 +28,7 @@ interface LoginFormProps {
 const LoginForm = ({}: LoginFormProps) => {
   const [apiError, setApiError] = useState('');
 
-  const { logIn, user } = useAuth();
+  const { logIn } = useAuth();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -52,7 +52,6 @@ const LoginForm = ({}: LoginFormProps) => {
       setApiError(message);
     }
   };
-  console.log('user from login: ', user);
   return (
     <div className="flex items-center justify-center min-h-screen bg-red-900">
       <div className="bg-white p-8 rounded shadow-md w-96">

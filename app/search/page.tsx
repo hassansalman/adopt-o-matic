@@ -100,8 +100,6 @@ export default function SearchPage() {
     }
   };
 
-  console.log('matchedDog', matchedDog);
-
   return (
     <>
       <Navbar />
